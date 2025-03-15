@@ -1,0 +1,6 @@
+CREATE TABLE `posts` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `author_id` INT NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT FOREIGN KEY (`author_id`) REFERENCES `users` (id) ON UPDATE CASCADE ON DELETE CASCADE
+)
