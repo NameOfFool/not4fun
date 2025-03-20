@@ -1,6 +1,7 @@
 pub mod models;
 pub mod schemas;
 mod tests;
+mod schema;
 
 use argon2::{
     password_hash::{
@@ -61,7 +62,7 @@ async fn get_user(mut db: Connection<Db>, id: i64) -> Option<Json<User>> {
 fn get_salt<'a>(password: &str) -> String {
     let salt = SaltString::generate(&mut OsRng);
     let argon2 = Argon2::default();
-    argon2.hash_password(password.as_bytes(), &salt).unwrap().to_string()
+    argon2.hash_password(password.as_bytes(), &salt).unwrap().hash.unwrap().to_string()
 }
 //EndUsers
 
