@@ -10,6 +10,7 @@ diesel = { version = "2"}
 diesel_migrations = "2.0.0"
 password-hash = "0.5.0"
 argon2 = "0.5.3"
+rocket_cors = "0.6.0"
 
 [dependencies.rocket_db_pools]
 version = "0.2.0"
